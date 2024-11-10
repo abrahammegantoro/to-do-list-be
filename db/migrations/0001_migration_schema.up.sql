@@ -1,0 +1,22 @@
+CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TYPE priority_level AS ENUM('low', 'medium', 'high');
+
+CREATE TABLE todos (
+    id BIGSERIAL PRIMARY KEY,
+    text VARCHAR(255) NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    date TIMESTAMPTZ NOT NULL,
+    priority_level priority_level NOT NULL,
+    completed BOOLEAN NOT NULL DEFAULT FALSE,
+    user_id BIGINT NOT NULL REFERENCES users (id),
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
