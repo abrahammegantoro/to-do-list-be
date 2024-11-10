@@ -64,11 +64,11 @@ cp .env.example .env
 
 Update the `.env` file with your configuration:
 ```
-DB_HOST=localhost
-DB_PORT=5432
-DB_USER=your_username
-DB_PASSWORD=your_password
-DB_NAME=todo_db
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
+DATABASE_USER=your_username
+DATABASE_PASS=your_password
+DATABASE_NAME=todo_db
 JWT_SECRET=your_jwt_secret
 ```
 
